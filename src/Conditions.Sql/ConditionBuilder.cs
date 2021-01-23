@@ -19,5 +19,11 @@ namespace Conditions.Sql
 		public static string WithTypedCondition<T>(this string s, ICondition<T> condition) => condition.Apply(s);
 
 		public static string WithGroupCondition(this string s, GroupCondition condition) => condition.Apply(s);
+
+		public static string WithBetweenCondition(this string s, string value, string betweenLow, string betweenHigh) => new BetweenCondition(value, betweenLow, betweenHigh).Apply(s);
+
+		public static string WithBetweenCondition<T>(this string s, T value, T betweenLow, T betweenHigh) => new BetweenCondition<T>(value, betweenLow, betweenHigh).Apply(s);
+
+		public static string WithBetweenCondition(this string s, BetweenCondition condition) => condition.Apply(s);
 	}
 }
