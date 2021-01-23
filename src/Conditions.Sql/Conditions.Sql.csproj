@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net461;netstandard1.4;netstandard2.0</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Luk Vermeulen</Authors>
+    <Copyright>Copyright 2021 by Luk Vermeulen. All rights reserved.</Copyright>
+    <PackageLicenseUrl>https://github.com/lvermeulen/Conditions.Sql/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/lvermeulen/Conditions.Sql</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/lvermeulen/Conditions.Sql</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>condition conditions dapper sql specification</PackageTags>
+    <PackageIconUrl>https://i.imgur.com/eEjfRLz.jpg?2</PackageIconUrl>
+    <Description>Conditions for Dapper and SQL</Description>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\Conditions.Sql.snk</AssemblyOriginatorKeyFile>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <DelaySign>false</DelaySign>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
+  </ItemGroup>
+
+</Project>

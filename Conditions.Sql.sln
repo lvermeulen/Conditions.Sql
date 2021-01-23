@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30803.129
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{EDD52646-DF73-464C-82C9-F113B935FE4A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Conditions.Sql", "src\Conditions.Sql\Conditions.Sql.csproj", "{B1CF636E-3D85-4797-ACEB-9C7FDBC341F9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Conditions.Sql.Tests", "test\Conditions.Sql.Tests\Conditions.Sql.Tests.csproj", "{93BBC2D6-7894-48BD-A500-639888E472FE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4581C26E-5D5E-4A11-9253-69170C216142}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		appveyor.yml = appveyor.yml
+		global.json = global.json
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{657CF15B-454A-4D44-B1FF-F88B0CC44FC2}"
+	ProjectSection(SolutionItems) = preProject
+		build\build.ps1 = build\build.ps1
+		build\test.ps1 = build\test.ps1
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B1CF636E-3D85-4797-ACEB-9C7FDBC341F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1CF636E-3D85-4797-ACEB-9C7FDBC341F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1CF636E-3D85-4797-ACEB-9C7FDBC341F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1CF636E-3D85-4797-ACEB-9C7FDBC341F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93BBC2D6-7894-48BD-A500-639888E472FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93BBC2D6-7894-48BD-A500-639888E472FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93BBC2D6-7894-48BD-A500-639888E472FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93BBC2D6-7894-48BD-A500-639888E472FE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{93BBC2D6-7894-48BD-A500-639888E472FE} = {EDD52646-DF73-464C-82C9-F113B935FE4A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {67EF1B33-F6A2-4F20-859C-D6C027CD71E5}
+	EndGlobalSection
+EndGlobal
