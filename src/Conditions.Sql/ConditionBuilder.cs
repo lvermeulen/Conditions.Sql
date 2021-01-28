@@ -14,6 +14,8 @@ namespace Conditions.Sql
 
 		public static string WithLiteralCondition(this string s, ConditionTypes conditionType, string condition) => new LiteralCondition(conditionType, condition).Apply(s);
 
+		public static string WithLiteralCondition(this string s, string condition) => s.WithLiteralCondition(ConditionTypes.And, condition);
+
 		public static string WithCondition(this string s, ICondition condition) => condition.Apply(s);
 
 		public static string WithTypedCondition<T>(this string s, ICondition<T> condition) => condition.Apply(s);
@@ -31,5 +33,7 @@ namespace Conditions.Sql
 		public static string WithNotCondition(this string s, ConditionTypes conditionType, string condition) => new NotCondition(conditionType, new LiteralCondition(condition)).Apply(s);
 
 		public static string WithNotCondition(this string s, ICondition condition) => condition.Apply(s);
+
+		public static string WithWhere(this string s) => s.AddWhere();
 	}
 }

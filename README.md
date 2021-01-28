@@ -73,5 +73,13 @@ string sql = "...";
 sql = sql.WithNotCondition("2 <> 2");
 ```
 
+### Add where
+
+You can explicitly add a "where" to a SQL statement:
+```csharp
+string sql = "...";
+sql = sql.WithWhere();
+```
+
 ## Thanks
 * [condition](https://thenounproject.com/search/?q=condition&i=101727) icon by [Arthur Shlain](https://thenounproject.com/ArtZ91/) from [The Noun Project](https://thenounproject.com)

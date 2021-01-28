@@ -129,5 +129,17 @@ from
 				new NotCondition(new TypedCondition<int>("1", Operators.NotEquals, 2))
 			});
 		}
+
+		[Theory]
+		[InlineData("select 1")]
+		[InlineData("select 1 group by 1")]
+		[InlineData("select 1 order by 1")]
+		[InlineData("select 1 group by 1 order by 1")]
+		public void UseWhere(string sql)
+		{
+			sql = sql.AddWhere();
+			_testOutputHelper.WriteLine(sql);
+			Assert.True(new RegexPhraseFinder().FindPhrase(sql, "where").hasPhrase);
+		}
 	}
 }

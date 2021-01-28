@@ -17,9 +17,8 @@ namespace Conditions.Sql
 
 		public override string ToSql()
 		{
-			string left = Left.GetTypeToSql();
 			string right = Right.GetTypeToSql();
-			return $"{left} {Op.ToSql()} {right}";
+			return $"{Left} {Op.ToSql()} {right}";
 		}
 	}
 }
