@@ -47,12 +47,9 @@ from
 			var connection = GetConnection(_connectionString);
 
 			// act
-			string sqlWithConditions = hasWhere
-				? sql.And(new GroupCondition(ConditionTypes.And, conditions))
-				: sql.WithGroupCondition(new GroupCondition(ConditionTypes.And, conditions));
-			//string sqlWithConditions = sql.WithGroupCondition();
+			string sqlWithConditions = sql.WithGroupCondition(new GroupCondition(ConditionTypes.And, conditions));
 			_testOutputHelper.WriteLine(sqlWithConditions);
-			var result = connection.Query<Basket>(sqlWithConditions).ToList(); // TODO: uncomment Dapper
+			var result = connection.Query<Basket>(sqlWithConditions).ToList();
 
 			// assert
 			Assert.NotNull(result);
@@ -90,12 +87,12 @@ from
 		{
 			UseConditions(hasWhere, hasGroupBy, hasOrderBy, new List<ICondition>
 			{
-				//new LiteralCondition("2 = 2"),
-				//new TypedCondition<int>("1", Operators.NotEquals, 2),
-				new GroupCondition(ConditionTypes.And, new List<IChainedCondition>
+				new LiteralCondition("2 = 2"),
+				new TypedCondition<int>("1", Operators.NotEquals, 2),
+				new GroupCondition(ConditionTypes.Or, new List<ICondition>
 				{
-					new ChainedCondition(ConditionTypes.And, new LiteralCondition("3 = 3")),
-					new ChainedCondition(ConditionTypes.Or, new LiteralCondition("4 <> 5"))
+					new LiteralCondition("3 = 3"),
+					new LiteralCondition("4 <> 5")
 				})
 			});
 		}
@@ -119,6 +116,17 @@ from
 			{
 				new LiteralCondition("2 = 2"),
 				new TypedCondition<int>("1", Operators.NotEquals, 2)
+			});
+		}
+
+		[Theory]
+		[ClassData(typeof(ConditionTheoryData))]
+		public void UseNotCondition(bool hasWhere, bool hasGroupBy, bool hasOrderBy)
+		{
+			UseConditions(hasWhere, hasGroupBy, hasOrderBy, new List<ICondition>
+			{
+				new NotCondition(new LiteralCondition("2 = 2")),
+				new NotCondition(new TypedCondition<int>("1", Operators.NotEquals, 2))
 			});
 		}
 	}

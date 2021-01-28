@@ -7,12 +7,12 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Luk Vermeulen</Authors>
     <Copyright>Copyright 2021 by Luk Vermeulen. All rights reserved.</Copyright>
-    <PackageLicenseUrl>https://github.com/lvermeulen/Conditions.Sql/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseUrl></PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/lvermeulen/Conditions.Sql</PackageProjectUrl>
     <RepositoryUrl>https://github.com/lvermeulen/Conditions.Sql</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>condition conditions dapper sql specification</PackageTags>
-    <PackageIconUrl>https://i.imgur.com/eEjfRLz.jpg?2</PackageIconUrl>
+    <PackageIconUrl></PackageIconUrl>
     <Description>Conditions for Dapper and SQL</Description>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>..\..\Conditions.Sql.snk</AssemblyOriginatorKeyFile>
@@ -20,10 +20,19 @@
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <DelaySign>false</DelaySign>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageIcon>Conditions.Sql.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="System.ValueTuple" Version="4.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\assets\Conditions.Sql.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

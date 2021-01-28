@@ -2,6 +2,7 @@
 {
 	public interface ICondition
 	{
+		ConditionTypes ConditionType { get; }
 		string ToSql();
 		string Apply(string s);
 	}

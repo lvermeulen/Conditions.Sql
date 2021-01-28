@@ -12,6 +12,14 @@ namespace Conditions.Sql
 			_phraseFinder = new RegexPhraseFinder();
 		}
 
+		protected Condition(ConditionTypes conditionType)
+			: this()
+		{
+			ConditionType = conditionType;
+		}
+
+		public ConditionTypes ConditionType { get; }
+
 		public abstract string ToSql();
 
 		public virtual string Apply(string s)
@@ -44,13 +52,9 @@ namespace Conditions.Sql
 				insertionIndex = _phraseFinder.FindPhrase(sb.ToString(), where).startIndex + whereLength;
 			}
 
-			string conditionType = "";
-			if (this is IChainedCondition chainedCondition)
-			{
-				conditionType = hasWhere
-					? chainedCondition.ConditionType.ToSql().WithTrailingSpace() // TODO: review
-					: "";
-			}
+			string conditionType = hasWhere
+				? ConditionType.ToSql().WithTrailingSpace()
+				: "";
 			string conditionString = $"\t{conditionType}{ToSql().InParentheses()}";
 
 			if (hasGroupBy || hasOrderBy)
