@@ -1,7 +1,6 @@
 ﻿using System.Text.RegularExpressions;
-using Conditions.Sql.Abstractions;
 
-namespace Conditions.Sql
+namespace Conditions.Sql.Abstractions
 {
 	public class RegexPhraseFinder : IFindPhrase
 	{

@@ -1,6 +1,4 @@
-﻿using Conditions.Sql.Abstractions;
-
-namespace Conditions.Sql
+﻿namespace Conditions.Sql.Abstractions
 {
 	public static class ConditionTypesExtensions
 	{

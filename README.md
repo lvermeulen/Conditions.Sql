@@ -11,7 +11,67 @@
 Conditions for Dapper and SQL
 
 ## Features
-To follow...
+
+This library allows you to add conditions to a SQL string. The following condition types are supported:
+* Literal conditions
+* Typed conditions (see below for supported operators)
+* Group conditions
+* Between conditions
+* Not conditions
+
+### Conditions
+
+You can use any of the below condition types:
+```csharp
+string sql = "...";
+sql = sql.WithCondition(new LiteralCondition("1 <> 2"));
+```
+
+### Literal conditions
+```csharp
+string sql = "...";
+sql = sql.WithLiteralCondition("1 <> 2");
+```
+
+### Typed conditions
+
+
+```csharp
+string sql = "...";
+sql = sql.WithTypedCondition<int>("OrderId", Operators.NotEquals, 2);
+```
+Operators supported are:
+* =
+* <>
+* &lt;
+* &lt;=
+* &gt;
+* &gt;=
+* like
+* in
+
+
+### Group conditions
+```csharp
+string sql = "...";
+sql = sql.WithGroupCondition(new GroupCondition(ConditionTypes.Or, new List<ICondition>
+{
+	new LiteralCondition("3 = 3"),
+	new TypedCondition<int>("OrderId", Operators.NotEquals, 2)
+}));
+```
+
+### Between conditions
+```csharp
+string sql = "...";
+sql = sql.WithBetweenCondition("1", "0", "2");
+```
+
+### Not conditions
+```csharp
+string sql = "...";
+sql = sql.WithNotCondition("2 <> 2");
+```
 
 ## Thanks
 * [condition](https://thenounproject.com/search/?q=condition&i=101727) icon by [Arthur Shlain](https://thenounproject.com/ArtZ91/) from [The Noun Project](https://thenounproject.com)
